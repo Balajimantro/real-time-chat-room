@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="chat_container">
+        <div class="online_user_count">
+            <span class="green_dot"></span> 
+            <span>Total Online User: {{onlineUsers}}</span>
+            </div>
+        <div class="main_chat_box">
+            <!-- user name input section -->
+            <div class="user_name_input">
+                <div class="user_icon"><i class="bi bi-people"></i></div>
+                <input #userNameInput type="text" placeholder="Enter Your Name" class="input_name_box" [(ngModel)]="username">
+            </div>
+            <!-- message body -->
+             <ul id="body_container" class="body_container">
+             </ul>
+
+            <!-- message input and send button section -->
+             <div class="message_input_container">
+                <input type="text" placeholder="Enter Message" class="message_input_box" [(ngModel)]="message" (input)="onTyping()">
+                <div class="divide_line"></div>
+                <div class="send_message_button"  (click)=" sendMessage()">
+                    <div class="send_icon"><i class="bi bi-send"></i></div>
+                    <button class="send_button">Send</button>
+                </div>
+             </div>
+        </div>
+    </div>
+</div>
