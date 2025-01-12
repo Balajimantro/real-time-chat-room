@@ -2,13 +2,14 @@ import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { io, Socket } from 'socket.io-client';
 import { Observable } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
+import { environment } from '../../environment/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ChatService {
   private socket: Socket | null = null;
-  private serverUrl = 'http://localhost:3000'; 
+  private serverUrl = environment.apiUrl; 
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
     if (isPlatformBrowser(this.platformId)) {
@@ -20,6 +21,7 @@ export class ChatService {
     return new Observable((observer) => {
       if (this.socket) {
         this.socket.on('totalOnlineUser', (message: any) => {
+          console.log(message)
           observer.next(message);
         });
       }
