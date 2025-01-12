@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "build": "ng build",
     "start": "concurrently \"ng serve\" \"npm run backend\"",
     "backend": "nodemon ../chat-app/backend/index.js",
     "watch": "ng build --watch --configuration development",
