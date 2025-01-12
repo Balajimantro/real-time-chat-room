@@ -4,8 +4,8 @@ const { Server } = require('socket.io');
 const cors = require('cors');
 
 const allowedOrigins = [
-  'http://localhost:4200', // For local development
-  'https://live-room-chat.netlify.app', // Deployed frontend
+  // 'http://localhost:4200', 
+  'https://live-room-chat.netlify.app',
 ];
 
 // folders
@@ -16,6 +16,7 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: allowedOrigins, // Angular's default development server
+    methods: ['GET', 'POST'],
     credentials: true,
   }
 });

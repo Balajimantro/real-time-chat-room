@@ -21,7 +21,6 @@ export class ChatService {
     return new Observable((observer) => {
       if (this.socket) {
         this.socket.on('totalOnlineUser', (message: any) => {
-          console.log(message)
           observer.next(message);
         });
       }
