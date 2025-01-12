@@ -58,7 +58,6 @@ export class ChatComponent {
           username: this.username,
           timestamp: new Date()
         }
-        console.log(data.username)
         this.cs.sendMessage(data);
         this.showOwnMessageInUi(true, data)
         this.message = '';
